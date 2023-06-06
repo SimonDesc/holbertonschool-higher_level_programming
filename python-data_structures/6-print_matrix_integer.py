@@ -9,4 +9,6 @@ def print_matrix_integer(matrix=[[]]):
             print("{:d}".format(matrix[i][j]), end="")
             if (j != len(matrix) - 1):
                 print("", end=" ")
+            else:
+                print()
         print("")
