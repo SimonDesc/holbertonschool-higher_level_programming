@@ -2,6 +2,8 @@
 """
 First file with a class !
 """
+
+
 class Square:
     """
     first class in Python
