@@ -3,15 +3,12 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     phrase = ""
-    for element in range(len(text)):
-        if text[element] in [".", "?", ":"]:
-            phrase += text[element]
-            print(phrase)
-            phrase = ""
+    for element in text:
+        if element in [".", "?", ":"]:
+            phrase += element
+            print(phrase.strip())
             print()
+            phrase = ""
         else:
-            if text[element] == " " and text[element - 1] in [".", "?", ":"]:
-                phrase = ""
-            else:
-                phrase += text[element]
-    print(phrase, end="")
+            phrase += element
+    print(phrase.strip(), end="")
