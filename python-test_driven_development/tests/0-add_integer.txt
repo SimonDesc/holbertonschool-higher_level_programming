@@ -12,8 +12,7 @@ Now use it:
     101
 
     >>> add_integer(3, "school")
-    Traceback (most recent call last):
-    TypeError: b must be an integer
+    TypeError('b must be an integer')
 
     >>> add_integer(3.14)
     101
