@@ -16,16 +16,17 @@ class Rectangle:
         Rectangle.number_of_instances += 1
 
     def __str__(self):
-        string = ""
-        if self.width == 0 or self.height == 0:
-            return string
+        if self.height == 0 or self.width == 0:
+            return ""
 
-        for i in range(self.height):
-            for j in range(self.width):
-                string += str(self.print_symbol)
-            if i != self.height - 1:
-                string += "\n"
-        return string
+        for longeur in range(self.height):
+            for case in range(self.width):
+                print("{}".format(self.print_symbol), end="")
+            if longeur + 1 == self.height:
+                pass
+            else:
+                print()
+        return ""
 
     @property
     def width(self):
