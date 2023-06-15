@@ -29,7 +29,7 @@ class Rectangle:
 
     @property
     def width(self):
-        return self.__Rectangle__width
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -38,11 +38,11 @@ class Rectangle:
         if value < 0:
             raise ValueError("width must be >= 0")
         else:
-            self.__Rectangle__width = value
+            self.__width = value
 
     @property
     def height(self):
-        return self.__Rectangle__height
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -51,7 +51,7 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         else:
-            self.__Rectangle__height = value
+            self.__height = value
 
     def area(self):
         return self.height * self.width
@@ -74,7 +74,7 @@ class Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
-        if rect_1.area < rect_1.area:
+        if rect_1.area() < rect_1.area():
             return rect_2
         return rect_1
 
