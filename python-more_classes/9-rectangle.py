@@ -11,22 +11,21 @@ class Rectangle:
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        self.height = height
         self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     def __str__(self):
-        if self.height == 0 or self.width == 0:
-            return ""
+        string = ""
+        if self.width == 0 or self.height == 0:
+            return string
 
-        for longeur in range(self.height):
-            for case in range(self.width):
-                print("{}".format(self.print_symbol), end="")
-            if longeur + 1 == self.height:
-                pass
-            else:
-                print()
-        return ""
+        for i in range(self.height):
+            for j in range(self.width):
+                string += str(self.print_symbol)
+            if i != self.height - 1:
+                string += "\n"
+        return string
 
     @property
     def width(self):
