@@ -4,7 +4,7 @@
 
 class MyList(list):
     """A class list that inherits from list"""
-    
+
     def print_sorted(self):
         """A public instance method that prints the list
         in sorted ascending order
@@ -12,5 +12,5 @@ class MyList(list):
         Args: nothing
 
         Returns: nothing
-        """        
+        """
         print(sorted(self))
