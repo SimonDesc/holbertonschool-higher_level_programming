@@ -4,9 +4,6 @@
 
 def write_file(filename="", text=""):
     """open and write"""
-    try:
-        with open(filename, "w", encoding="utf-8") as f:
-            nb_characters = f.write(text)
-    except IOError:
-        pass
+    with open(filename, "w", encoding="utf-8") as f:
+        nb_characters = f.write(text)
     return nb_characters
