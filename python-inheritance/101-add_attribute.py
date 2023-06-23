@@ -2,7 +2,7 @@
 """function that block the creation of new attr"""
 
 
-def add_attribute(object, type, string):
+def add_attribute(obj, attr_name, attr_value):
     """
     The function adds a new attribute to an object if it is possible.
 
@@ -16,8 +16,8 @@ def add_attribute(object, type, string):
     Raises:
         TypeError: if it's not possible to add a new attribute to the object
     """
-    if not hasattr(object, '__dict__') or (hasattr(object, '__slots__')
-                                           and type not in object.__slots__):
+    if not hasattr(obj, '__dict__') or (hasattr(obj, '__slots__')
+                                        and attr_name not in obj.__slots__):
         raise TypeError("can't add new attribute")
     else:
-        setattr(object, type, string)
+        setattr(obj, attr_name, attr_value)
