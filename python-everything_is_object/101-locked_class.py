@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """function that block the creation of new attr"""
+
+
 class LockedClass:
     def __init__(self):
         super().__setattr__("first_name", "")
