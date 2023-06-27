@@ -2,6 +2,7 @@
 """first class"""
 import json
 
+
 class Base:
     """initialize an id"""
 
@@ -16,4 +17,5 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """returns the JSON string representation"""
         return json.dumps(list_dictionaries)
