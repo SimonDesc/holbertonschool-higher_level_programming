@@ -94,3 +94,19 @@ class Rectangle(Base):
             for j in range(self.width):
                 print("#", end="")
             print()
+
+    def update(self, *args):
+        """update the args of rectangle"""
+        count = 0
+        for arg in args:
+            if count == 0:
+                self.id = arg
+            if count == 1:
+                self.__width = arg
+            if count == 2:
+                self.__height = arg
+            if count == 3:
+                self.__x = arg
+            if count == 4:
+                self.__y = arg
+            count += 1
