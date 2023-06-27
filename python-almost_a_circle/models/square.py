@@ -30,7 +30,7 @@ class Square(Rectangle):
         else:
             self.width = value
             self.height = value
-            
+
     def update(self, *args, **kwargs):
         """update the args of rectangle"""
         if not kwargs:
