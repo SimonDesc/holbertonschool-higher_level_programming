@@ -95,18 +95,31 @@ class Rectangle(Base):
                 print("#", end="")
             print()
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """update the args of rectangle"""
-        count = 0
-        for arg in args:
-            if count == 0:
-                self.id = arg
-            if count == 1:
-                self.__width = arg
-            if count == 2:
-                self.__height = arg
-            if count == 3:
-                self.__x = arg
-            if count == 4:
-                self.__y = arg
-            count += 1
+        if kwargs is None:
+            count = 0
+            for arg in args:
+                if count == 0:
+                    self.id = arg
+                if count == 1:
+                    self.__width = arg
+                if count == 2:
+                    self.__height = arg
+                if count == 3:
+                    self.__x = arg
+                if count == 4:
+                    self.__y = arg
+                count += 1
+        else:
+            for cle, valeur in kwargs.items():
+                if cle == "id":
+                    self.id = valeur
+                if cle == "width":
+                    self.__width = valeur
+                if cle == "height":
+                    self.__height = valeur
+                if cle == "x":
+                    self.__x = valeur
+                if cle == "y":
+                    self.__y = valeur
