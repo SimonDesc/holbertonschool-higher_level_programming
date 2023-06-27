@@ -123,3 +123,7 @@ class Rectangle(Base):
                     self.__x = valeur
                 if cle == "y":
                     self.__y = valeur
+
+    def to_dictionary(self):
+        """return the dictionary representation"""
+        return {'x': self.x, 'y': self.y, 'id': self.id, 'height': self.height, 'width': self.width}
