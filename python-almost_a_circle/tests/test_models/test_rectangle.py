@@ -154,7 +154,7 @@ class Test_Rectangle_method(unittest.TestCase):
         rect11 = Rectangle(1, 2, 0, 1)
         capture = Test_Rectangle_method.captureOutput(rect11, "display")
         self.assertEqual("\n#\n#\n", capture.getvalue())
-    
+
     def test_RectangleDisplayOneArg(self):
         # return display if one Arg
         rect11 = Rectangle(1, 2, 0, 1)
@@ -254,6 +254,7 @@ class Test_Base_Create(unittest.TestCase):
         rect14_dict = rect14.to_dictionary()
         rect15 = Rectangle.create(**rect14_dict)
         self.assertNotEqual(rect15, rect14)
+
 
 class Test_Base_MethodeWithFile(unittest.TestCase):
     # test method class Base save to file

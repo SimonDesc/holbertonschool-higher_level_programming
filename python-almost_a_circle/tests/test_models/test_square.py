@@ -228,6 +228,7 @@ class Test_Base_method(unittest.TestCase):
         sq16 = Square.create(**sq15_dict)
         self.assertNotEqual(sq15, sq16)
 
+
 class Test_Base_MethodeWithFile(unittest.TestCase):
     # test method class Base save to file
     # before testing, remove any create file
