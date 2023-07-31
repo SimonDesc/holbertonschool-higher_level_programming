@@ -30,8 +30,7 @@ if __name__ == "__main__":
         """
         )
         # Exécution de la requête
-        result = connection.execute(query, {"value" : state_name_db})
-    # Récupération des résultats
+        result = connection.execute(query, {"value": state_name_db})
+        # Récupération des résultats
         for row in result:
             print(row)
-        
