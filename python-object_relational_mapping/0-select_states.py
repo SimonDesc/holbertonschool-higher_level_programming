@@ -2,11 +2,10 @@
 """lists all states from database """
 
 
+import MySQLdb
+import sys
+
 if __name__ == "__main__":
-    import MySQLdb
-    import sys
-
-
     user_db = sys.argv[1]
     passwd_db = sys.argv[2]
     name_db = sys.argv[3]
