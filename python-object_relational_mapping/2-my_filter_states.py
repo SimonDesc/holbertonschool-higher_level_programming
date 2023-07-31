@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""lists states starting with "N" from database """
+"""lists specific states from database """
 
 
 import MySQLdb
@@ -9,6 +9,7 @@ if __name__ == "__main__":
     user_db = sys.argv[1]
     passwd_db = sys.argv[2]
     name_db = sys.argv[3]
+    state_name_db = sys.argv[4]
 
     # Connexion à la BDD
     db = MySQLdb.connect(
@@ -22,11 +23,12 @@ if __name__ == "__main__":
     cursor.execute(
         """
         SELECT * FROM states
-        WHERE BINARY name
-        LIKE 'N%'
+        WHERE name = "{}"
         ORDER BY states.id ASC
-        """
+        """.format(
+            str(state_name_db)
         )
+    )
 
     # Récupération des résultats
     results = cursor.fetchall()
