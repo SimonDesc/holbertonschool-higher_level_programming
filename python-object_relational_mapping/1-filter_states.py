@@ -19,7 +19,9 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Exécution de requêtes SQL
-    cursor.execute("SELECT * FROM states WHERE name like 'N%' ORDER BY states.id ASC")
+    cursor.execute(
+        "SELECT * FROM states WHERE name like 'N%' ORDER BY states.id ASC"
+        )
 
     # Récupération des résultats
     results = cursor.fetchall()
