@@ -26,7 +26,7 @@ if __name__ == "__main__":
         WHERE name = "{}"
         ORDER BY states.id ASC
         """.format(
-            str(state_name_db)
+            state_name_db
         )
     )
 
