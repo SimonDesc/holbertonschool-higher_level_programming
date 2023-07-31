@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""lists specific states from database """
+"""lists specific states from database and prevent sql injection"""
 
 
+import MySQLdb
 import sys
-from sqlalchemy import create_engine, text
-
 
 if __name__ == "__main__":
     user_db = sys.argv[1]
@@ -13,25 +12,33 @@ if __name__ == "__main__":
     state_name_db = sys.argv[4]
 
     # Connexion à la BDD
-    engine = create_engine(
-        "mysql+mysqldb://{user}:{pwd}@localhost:3306/{dbname}".format(
-            user=user_db, pwd=passwd_db, dbname=name_db
+    db = MySQLdb.connect(
+        host="localhost", user=user_db, passwd=passwd_db, db=name_db, port=3306
+    )
+
+    # Création d'un curseur
+    cursor = db.cursor()
+    
+    
+
+    # Exécution de requêtes SQL
+    cursor.execute(
+        """
+        SELECT * FROM states
+        WHERE BINARY
+        name = "%s"
+        ORDER BY states.id ASC
+        """.format(
+            state_name_db
         )
     )
 
-    # Création de la connexion à la BDD
-    with engine.connect() as connection:
-        # "text" s'assure que la valeur sera correctement échappée
-        query = text(
-            """
-        SELECT * FROM states
-        WHERE BINARY
-        name = :value
-        ORDER BY states.id ASC
-        """
-        )
-        # Exécution de la requête
-        result = connection.execute(query, {"value": state_name_db})
-        # Récupération des résultats
-        for row in result:
-            print(row)
+    # Récupération des résultats
+    results = cursor.fetchall()
+
+    # Affichage des résultats
+    for element in results:
+        print(element)
+
+    # Femeture de la connexion
+    db.close()
