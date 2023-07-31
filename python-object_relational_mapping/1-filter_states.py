@@ -20,7 +20,12 @@ if __name__ == "__main__":
 
     # Exécution de requêtes SQL
     cursor.execute(
-        "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC"
+        """
+        SELECT * FROM states
+        WHERE UPPER(name)
+        LIKE 'N%'
+        ORDER BY states.id ASC
+        """
         )
 
     # Récupération des résultats
