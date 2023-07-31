@@ -18,8 +18,6 @@ if __name__ == "__main__":
 
     # Création d'un curseur
     cursor = db.cursor()
-    
-    
 
     # Exécution de requêtes SQL
     cursor.execute(
@@ -28,7 +26,8 @@ if __name__ == "__main__":
         WHERE BINARY
         name = %s
         ORDER BY states.id ASC
-        """,(state_name_db,) 
+        """,
+        (state_name_db,),
     )
 
     # Récupération des résultats
