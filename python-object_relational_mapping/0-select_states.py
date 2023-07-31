@@ -9,12 +9,24 @@ if __name__ == "__main__":
     user_db = sys.argv[1]
     passwd_db = sys.argv[2]
     name_db = sys.argv[3]
-    
-    db = MySQLdb.connect(host="localhost", user=user_db, passwd=passwd_db, db=name_db, port=3306)
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
-    results = cursor.fetchall()
-    for element in results:
-        print(element);
-    db.close()
 
+    # Connexion à la BDD
+    db = MySQLdb.connect(
+        host="localhost", user=user_db, passwd=passwd_db, db=name_db, port=3306
+    )
+
+    # Création d'un curseur
+    cursor = db.cursor()
+
+    # Exécution de requêtes SQL
+    cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
+
+    # Récupération des résultats
+    results = cursor.fetchall()
+
+    # Affichage des résultats
+    for element in results:
+        print(element)
+
+    # Femeture de la connexion
+    db.close()
