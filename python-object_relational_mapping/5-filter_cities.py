@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # Exécution de requêtes SQL
     cursor.execute(
         """
-        SELECT GROUP_CONCAT(cities.name SEPARATOR ',' )
+        SELECT cities.name
         FROM cities, states
         WHERE states.id = cities.state_id
         AND BINARY states.name = %s
@@ -32,10 +32,15 @@ if __name__ == "__main__":
     )
 
     # Récupération des résultats
-    results = cursor.fetchone()
+    results = cursor.fetchall()
 
     # Affichage des résultats
-    for element in results:
-        print(element)
+    city_list = []
+    for city in results:
+        city_list.append(city[0])
+    # Assembler la liste en une seule chaîne
+    city_str = ", ".join(city_list)
+    print(city_str)
+
     # Femeture de la connexion
     db.close()
