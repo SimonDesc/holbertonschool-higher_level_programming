@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""lists specific states from database and prevent sql injection"""
+"""script that takes in the name of a state as an argument"""
 
 
 import MySQLdb
@@ -22,21 +22,20 @@ if __name__ == "__main__":
     # Exécution de requêtes SQL
     cursor.execute(
         """
-        SELECT cities.id, cities.name, states.name
+        SELECT GROUP_CONCAT(cities.name SEPARATOR ',' )
         FROM cities, states
         WHERE states.id = cities.state_id
-        AND states.name = %s
-        ORDER BY cities.id ASC
+        AND BINARY states.name = %s
+        ORDER BY states.id ASC
         """,
         (state_name_db,),
     )
 
     # Récupération des résultats
-    results = cursor.fetchall()
+    results = cursor.fetchone()
 
     # Affichage des résultats
     for element in results:
         print(element)
-
     # Femeture de la connexion
     db.close()

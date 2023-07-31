@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""lists all cities from database and prevent sql injection"""
+"""lists all cities from database"""
 
 
 import MySQLdb
