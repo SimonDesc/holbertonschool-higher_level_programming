@@ -26,11 +26,9 @@ if __name__ == "__main__":
         """
         SELECT * FROM states
         WHERE BINARY
-        name = "%s"
+        name = %s
         ORDER BY states.id ASC
-        """.format(
-            state_name_db
-        )
+        """,(state_name_db,) 
     )
 
     # Récupération des résultats
