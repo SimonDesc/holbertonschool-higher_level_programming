@@ -21,8 +21,7 @@ if __name__ == "__main__":
     session = Session(engine)
     states = session.query(State)\
         .filter(State.id == 1)\
-        .order_by(State.id)\
-        .all()
+        .order_by(State.id)
     if states is None:
         print("Nothing")
     else:
