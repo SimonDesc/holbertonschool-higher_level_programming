@@ -19,11 +19,12 @@ if __name__ == "__main__":
     )
 
     session = Session(engine)
-    states = session.query(State)\
-        .filter(State.id == 1)\
-        .order_by(State.id)
-    if states is None:
+    state = session.query(State)\
+        .order_by(State.id)\
+        .first()
+    if state is None:
         print("Nothing")
     else:
-        for state in states:
-            print(f"{state.id}: {state.name}")
+        print(f"{state.id}: {state.name}")
+
+    session.close()
