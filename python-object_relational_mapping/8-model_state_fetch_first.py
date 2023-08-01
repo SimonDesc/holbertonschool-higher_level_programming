@@ -23,6 +23,9 @@ if __name__ == "__main__":
         .filter(State.id == 1)\
         .order_by(State.id)\
         .all()
-
-    for state in states:
-        print(f"{state.id}: {state.name}")
+        
+    if states is None:
+        print("Nothing")
+    else:
+        for state in states:
+            print(f"{state.id}: {state.name}")
