@@ -19,7 +19,10 @@ if __name__ == "__main__":
     )
 
     session = Session(engine)
-    states = session.query(State).filter(State.id == 1).order_by(State.id).all()
+    states = session.query(State)\
+        .filter(State.id == 1)\
+        .order_by(State.id)\
+        .all()
 
     for state in states:
         print(f"{state.id}: {state.name}")
