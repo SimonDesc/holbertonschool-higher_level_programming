@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""a script that lists all State objects from the database hbtn_0e_6_usa"""
+"""a script that prints the State object with the name passed as argument"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
